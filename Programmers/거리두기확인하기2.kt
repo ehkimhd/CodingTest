@@ -1,3 +1,9 @@
+/*
+    Date    : 2022.04.25
+    level   : 2
+    url     : https://programmers.co.kr/learn/courses/30/lessons/81302
+ */
+
 public class Solution {
 
     fun solution(places: Array<Array<String>>): IntArray {
