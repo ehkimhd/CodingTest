@@ -7,35 +7,34 @@
 import java.math.BigInteger
 
 class Solution {
-        fun solution(n: Int): Long {
-        var answer = 1L 
+    fun solution(n: Int): Long {
+        var answer = 1.toBigInteger()
 
         for (i in 1L..n / 2L) {
             val j: Long = n - i * 2
             if (i == 1L) {
-                answer += (i + j)
+                answer += (i + j).toBigInteger()
                 continue
             }
 
-            // n값이 짝수일 경우 마지막 경우의 수
             if (j == 0L) {
-                answer += 1L
+                answer += 1L.toBigInteger()
                 break
             }
 
             answer += combi(i + j, if (i > j) j else i)
         }
-        return answer%1234567L
+        return (answer.remainder(1234567L.toBigInteger())).toLong()
     }
 
     // 조합 -> total C r
     // ex 6C2 => 6*5/2*1
-    fun combi(total: Long, r: Long): Long {
-        var top = total
-        var bottom = r
+    fun combi(total: Long, r: Long): BigInteger {
+        var top = total.toBigInteger()
+        var bottom = r.toBigInteger()
         for (i in 1 until r) {
-            top *= (total - i)
-            bottom *= (r - i)
+            top = top.multiply((total - i).toBigInteger())
+            bottom = bottom.multiply((r - i).toBigInteger())
         }
         return (top / bottom)
     }
